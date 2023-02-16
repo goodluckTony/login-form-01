@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
 }
@@ -5,8 +6,9 @@ body {
     margin: 0;
     padding: 0;
 }
-.form-group {
+.reg-group {
     display: flex;
+    flex-direction: column;
     background-color: white;
     background-image: -webkit-linear-gradient(top left, #0287e0, #f7eb67);
     align-items: center;
@@ -14,29 +16,45 @@ body {
     background-color: #21D4FD;
     height: 100vh;
 }
-.login-form {
-    /* min-width: 250px; */
-    width: 400px;
+.reg-form {
+    /* display: flex;
+    flex-direction: column; */
+    min-width: 250px;
+    max-width: 400px;
     border-radius: 24px;
     padding: 15px;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.login-form h1 {
+.reg-form h1 {
+    margin-top: 35px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 3.5rem;
     text-align: center;
-	font-size: 2.5rem;
-	margin-top: 35px;
 }
-.login {
-	margin-top: 30px;
+.email {
+    margin-top: 30px;
 }
 .password {
-	margin-top: 10px;
+    margin-top: 10px;
+}
+.confirm-password {
+    margin-top: 10px;
+}
+.email,
+.password,
+.confirm-password {
+    width: 100%;
+    border: none;
+    border-radius: 24px;
+    background-color: whitesmoke;
+    padding: 15px;
 }
 input {
     outline: none;
 }
-.login-btn {
+.reg-btn {
     background-image: -webkit-linear-gradient(top left, #0287e0, #f7eb67);
     color: white;
     width: 100%;
@@ -46,25 +64,15 @@ input {
     padding: 10px;
     border-radius: 24px;
     transition: 0.25s;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 1.3rem;
 }
-.login-btn:hover {
+.reg-btn:hover {
     opacity: 0.7;
 }
-.login,
-.password {
-    width: 100%;
-    border: none;
-    border-radius: 24px;
-    background-color: whitesmoke;
-    padding: 15px;
+.reg-btn-group p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 200;
+    font-size: 1rem;
 }
-.username-condition {
-    color: rgb(255, 0, 0);
-}
-/* .login:hover,
-.password:hover {
-   outline: 2px solid -webkit-linear-gradient(top left, #0287e0, #f7eb67);
-    border-image-source: linear-gradient(top left, #0287e0, #f7eb67);
-    border-width: 2px;
-    border-image-slice: 1;
-} */
