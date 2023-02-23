@@ -52,12 +52,12 @@ form.addEventListener('submit', function(e) {
     const params = {
         email: email
     };
-    emailjs.sendForm(serviceID, templateID, params)
+    emailjs.send(serviceID, templateID, params, 'kjnzRYRw2Q2eLUHMu')
         .then(() => {
-        btn.value = 'Send Email';
+        
         alert('Sent!');
         }, (err) => {
-        btn.value = 'Send Email';
+        
         alert(JSON.stringify(err));
         });
 });
