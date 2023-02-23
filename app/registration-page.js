@@ -1,11 +1,15 @@
+
+// registration
 const form = document.querySelector('.reg-form');
 const formMessage = document.querySelector('.reg-condition');
+const emailInput = document.querySelector('.email')
 const emailMessage = document.querySelector('.email-condition');
 const passMessage = document.querySelector('.password-condition');
 const confirmPassMessage = document.querySelector('.confirm-pass-condition');
 
-form.addEventListener('submit', function() {
+form.addEventListener('submit', function(e) {
     e.preventDefault();
+    
     const email = form.email.value;
     const password = form.password.value;
     const confirmPassword = form['confirm-password'].value;
@@ -22,22 +26,38 @@ form.addEventListener('submit', function() {
             formMessage.innerHTML = 'invalid email address'
         }
     }
-    let data = {
-        'email':email,
-        'password':password
+    let usersData = JSON.parse(localStorage.getItem('users')) || [];
+    const newUser = {
+        'email' : email,
+        'password' : password
     }
-    localStorage.setItem("userData", JSON.stringify(data))
+    
+    const emailExists = usersData.some(user => {
+        return user.email === email
+    })
+    if (emailExists) {
+        emailInput.style = 'border: 1px solid red;';
+        emailMessage.innerHTML = 'this email is already exists';
+    } else {
+        usersData.push(newUser);
+        const usersDataJSON = JSON.stringify(usersData);
+        localStorage.setItem("users", usersDataJSON);
+        formMessage.innerHTML = 'ready to sign in';
+    }
+    
+    // mailJS
+    
+    const serviceID = 'service_rs1hoc9';
+    const templateID = 'template_5hfm0sf';
+    const params = {
+        email: email
+    };
+    emailjs.sendForm(serviceID, templateID, params)
+        .then(() => {
+        btn.value = 'Send Email';
+        alert('Sent!');
+        }, (err) => {
+        btn.value = 'Send Email';
+        alert(JSON.stringify(err));
+        });
 });
-
-// const verifyLink = `https://api.example.com/verify-email?email=${email}`;
-// fetch(verificationLink)
-//     .then(response => {
-//         if (response.ok) {
-//             formMessage.innerText = 'Verify email sent';
-//         } else {
-//             emailMessage.innerText = 'Error sending verify email';
-//         }
-//     })
-//     .catch(error => {
-//         console.log(error);
-//     });

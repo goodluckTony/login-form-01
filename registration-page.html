@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,12 @@
     <title>Sign Up</title>
     <link rel="stylesheet" type="text/css" href="style/common.css">
     <link rel="stylesheet" type="text/css" href="style/registration.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        emailjs.init('kjnzRYRw2Q2eLUHMu')
+    </script>
 </head>
+
 <body>
     <div class="reg-group">
         <form class="reg-form" action="">
@@ -17,14 +23,14 @@
             <p class="email-condition"></p>
             <input type="password" class="password" name="password" placeholder="Password" required>
             <p class="password-condition"></p>
-            <input type="password" class="confirm-password" name="confirm-password" placeholder="Confirm password" required>
+            <input type="password" class="confirm-password" name="confirm-password" placeholder="Confirm password"
+                required>
             <p class="confirm-pass-condition"></p>
-            <div class="reg-btn-group">
-                <button type="submit" class="reg-btn" onclick="">Sign Up</button>
-                <p>Already a member? <a href="login-page.html">Sign In</a></p>
-            </div>
+            <button type="submit" class="reg-btn" id="button" onclick="">Sign Up</button>
+            <p class="back-tosign-in">Already a member? <a href="login-page.html">Sign In</a></p>
         </form>
     </div>
     <script src="app/registration-page.js"></script>
 </body>
+
 </html>
